@@ -6,7 +6,7 @@
 /*   By: IsaiasKardoso <isaiaskardososilva@gmail    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 00:25:38 by IsaiasKardo       #+#    #+#             */
-/*   Updated: 2026/06/25 19:15:58 by IsaiasKardo      ###   ########.fr       */
+/*   Updated: 2026/06/25 21:45:12 by IsaiasKardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_print_combn(int n)
 
 int	main()
 {
-	ft_print_combn(2);
+	ft_print_combn(3);
 	ft_putchar('\n');
 	return (0);
 }
