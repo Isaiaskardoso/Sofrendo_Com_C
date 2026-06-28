@@ -1,16 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: IsaiasKardoso <isaiaskardososilva@gmail    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/22 00:43:38 by IsaiasKardo       #+#    #+#             */
-/*   Updated: 2026/06/26 14:28:20 by IsaiasKardo      ###   ########.fr       */
+/*   Created: 2026/06/26 16:04:54 by IsaiasKardo       #+#    #+#             */
+/*   Updated: 2026/06/27 15:04:37 by IsaiasKardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar((nb % 10) + '0');
+}
 
 int	ft_atoi(char *str)
 {
@@ -21,17 +44,16 @@ int	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	while ((str[i] >= 13 && str[i] <= 9) || str[i] == 32)
 	{
 		i++;
 	}
-	if (str[i] == '-' || str[i] == '+')
+	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 		{
-			sign *= -1;
+			sign = -1;
 		}
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -41,25 +63,31 @@ int	ft_atoi(char *str)
 	return (result * sign);
 }
 
-void	ft_is_negative(int n)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	if (n < 0)
+	if (b != 0)
 	{
-		write(1, "N", 1);
-	}
-	else
-	{
-		write(1, "P", 1);
+		*div = a / b;
+		*mod = a % b;
 	}
 }
 
 int	main(int argc, char *argv[])
 {
-	int	n;
-	if (argc == 2)
+	int	a;
+	int	b;
+	int	div;
+	int	mod;
+
+	if (argc == 3)
 	{
-		n = ft_atoi(argv[1]);
-		ft_is_negative(n);
+		a = ft_atoi(argv[1]);
+		b = ft_atoi(argv[2]);
+		ft_div_mod(a, b, &div, &mod);
+		ft_putnbr(div);
+		ft_putchar('\n');
+		ft_putnbr(mod);
+		ft_putchar('\n');
 	}
 	return (0);
 }

@@ -1,65 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: IsaiasKardoso <isaiaskardososilva@gmail    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/22 00:43:38 by IsaiasKardo       #+#    #+#             */
-/*   Updated: 2026/06/26 14:28:20 by IsaiasKardo      ###   ########.fr       */
+/*   Created: 2026/06/27 23:55:08 by IsaiasKardo       #+#    #+#             */
+/*   Updated: 2026/06/28 00:36:56 by IsaiasKardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_atoi(char *str)
+void	ft_puchar(char c)
 {
-	int	i;
-	int	sign;
-	int	result;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-	{
-		i++;
-	}
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-		{
-			sign *= -1;
-		}
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result * sign);
+	write(1, &c, 1);
 }
 
-void	ft_is_negative(int n)
+void	ft_putnbr(int nb)
 {
-	if (n < 0)
+	if (nb == -2147483648)
 	{
-		write(1, "N", 1);
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	else
+	if (nb < 0)
 	{
-		write(1, "P", 1);
+		ft_puchar('-');
+		nb = -nb;
 	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb/ 10);
+	}
+	ft_puchar((nb % 10) + '0');	
+}
+
+int	ft_strlen(char *str)
+{
+	int i;
+	
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);	
 }
 
 int	main(int argc, char *argv[])
 {
-	int	n;
-	if (argc == 2)
+	int a;
+	int i;
+
+	i = 1;
+	while (i < argc)
 	{
-		n = ft_atoi(argv[1]);
-		ft_is_negative(n);
+		a = ft_strlen(argv[i]);
+		ft_putnbr(a);
+		if (1 < argc - 1)
+		{
+			ft_puchar(' ');
+		}
+		i++;
 	}
+	ft_puchar('\n');
 	return (0);
 }
