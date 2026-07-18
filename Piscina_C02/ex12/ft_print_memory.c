@@ -6,13 +6,13 @@
 /*   By: IsaiasKardoso <isaiaskardososilva@gmail    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 02:13:27 by IsaiasKardo       #+#    #+#             */
-/*   Updated: 2026/07/06 15:32:50 by IsaiasKardo      ###   ########.fr       */
+/*   Updated: 2026/07/11 14:28:57 by IsaiasKardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_puthex(unsigned char c)
+void	ft_puthex(unsigned char c)// calculo de hex
 {
 	char hex[] = "0123456789abcdef";
 	
@@ -116,11 +116,20 @@ void	*ft_print_memory(void *address, unsigned int size)
 	return (address);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	char str[] = "Bonjour les aminches....coucou";
+	unsigned	int	size;
 
-	ft_print_memory(str, sizeof(str));
+	if (argc != 2)
+	{
+		return (1);
+	}
+	size = 0;
+	while (argv[1][size] != '\0')
+	{
+		size++;		
+	}
+	ft_print_memory(argv[1], size);
 	return (0);
 }
 
