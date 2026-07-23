@@ -6,7 +6,7 @@
 /*   By: IsaiasKardoso <isaiaskardososilva@gmail    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 20:15:52 by IsaiasKardo       #+#    #+#             */
-/*   Updated: 2026/07/21 20:15:56 by IsaiasKardo      ###   ########.fr       */
+/*   Updated: 2026/07/22 00:44:26 by IsaiasKardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_verifica(char *base)
 	len = 0;
 	while (base[len])
 	{
-		if (base[len] == '+' || base[len] == '-')
+		if (base[len] == 43 || base[len] == 45)
 			return (0);
 		i = len + 1;
 		while (base[i])
