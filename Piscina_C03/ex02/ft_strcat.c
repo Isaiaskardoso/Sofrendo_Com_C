@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: IsaiasKardoso <isaiaskardososilva@gmail    +#+  +:+       +#+        */
+/*   By: kardoso <kardoso@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 10:36:12 by IsaiasKardo       #+#    #+#             */
-/*   Updated: 2026/07/17 11:41:16 by IsaiasKardo      ###   ########.fr       */
+/*   Updated: 2026/10/29 13:39:30 by kardoso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
