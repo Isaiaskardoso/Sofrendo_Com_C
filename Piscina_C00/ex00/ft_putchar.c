@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: IsaiasKardoso <isaiaskardososilva@gmail    +#+  +:+       +#+        */
+/*   By: kardoso <kardoso@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:38:53 by IsaiasKardo       #+#    #+#             */
-/*   Updated: 2026/06/25 18:49:53 by IsaiasKardo      ###   ########.fr       */
+/*   Updated: 2026/11/12 22:07:13 by kardoso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	main(void)
+
+/*int	main(void)
 {
 	ft_putchar(64);
 	return (0);
-}
+}*/
 
 /*Função que escreve um unico caracter com saida padrão */
 
-/*int	main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	if(argc == 2)
 	{		
@@ -33,4 +34,4 @@ int	main(void)
 	}
 	ft_putchar('\n'); 	
 	return (0);
-}*/
+}
